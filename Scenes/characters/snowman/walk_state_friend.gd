@@ -1,6 +1,6 @@
 extends NodeState
 
-@export var character: Node2D
+@export var character: NonPlayableCharacter
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var collision_shape_2d: CollisionShape2D = $"../../CollisionShape2D"
 @onready var navigation_agent_2d: NavigationAgent2D = $"../../NavigationAgent2D"
@@ -36,11 +36,8 @@ func _on_next_transitions() -> void:
 		character.velocity = Vector2.ZERO
 		transition.emit("Attack")
 
-	if character.currentHealth<=0 and character.level>1:
-		character.velocity=Vector2.ZERO
-		transition.emit("Split")
-		
-	#TODO transition.emit("Merge")
+
+
 
 func _on_enter() -> void:
 	animated_sprite_2d.play("walk")
@@ -50,9 +47,3 @@ func _on_enter() -> void:
 func _on_exit() -> void:
 	animated_sprite_2d.stop()
 	audio_stream_player_2d.stop()
-
-
-#func _on_hitbox_area_body_entered(body: Node2D) -> void:
-	#if body.is_in_group('enemy') and body.level==character.level and body!=character:
-		#
-		#transition.emit("Merge")
