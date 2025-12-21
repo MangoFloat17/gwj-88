@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhblxwrwsgtua"]
+[gd_scene load_steps=19 format=3 uid="uid://dhblxwrwsgtua"]
 
-[ext_resource type="Script" uid="uid://bg031jy6ectiu" path="res://scripts/player.gd" id="1_6t5aa"]
+[ext_resource type="Script" uid="uid://bg031jy6ectiu" path="res://Scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://cvdgrkfbb2bqt" path="res://Assets/Player/santaRun.png" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://d0en0chc1fnvg" path="res://Scenes/gun.tscn" id="2_cvnsp"]
 
@@ -87,6 +87,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
 radius = 11.045361
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgqql"]
+bg_color = Color(0.23392546, 0.23392549, 0.23392531, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkybt"]
+bg_color = Color(0, 0.99215686, 0.19607843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_6t5aa")
@@ -112,3 +129,22 @@ shape = SubResource("CircleShape2D_v0iea")
 
 [node name="Gun" parent="." instance=ExtResource("2_cvnsp")]
 position = Vector2(0, -10)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_6t5aa")
+debug_color = Color(0.8583471, 0.3081324, 0.50928265, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -34.0
+offset_top = -30.0
+offset_right = 34.0
+offset_bottom = -22.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vgqql")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fkybt")
+value = 100.0
+show_percentage = false
