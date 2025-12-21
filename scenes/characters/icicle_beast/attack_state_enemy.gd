@@ -27,7 +27,7 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	animated_sprite_2d.play("attack")
-	animated_sprite_2d.flip_h=character.facing>0
+	animated_sprite_2d.flip_h=character.facing<0
 	animated_sprite_2d.scale=animated_sprite_2d.scale*2
 	
 	attack_collision_shape.scale = attack_collision_shape.scale*2

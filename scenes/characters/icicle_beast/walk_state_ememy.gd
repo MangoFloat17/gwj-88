@@ -23,7 +23,7 @@ func _on_physics_process(_delta : float) -> void:
 	var target_direction: Vector2 = navigation_agent_2d.get_next_path_position() - character.global_position
 	character.velocity = target_direction.normalized()*character.speed*speed_modifier
 	character.facing=target_direction.x
-	animated_sprite_2d.flip_h = target_direction.x>0
+	animated_sprite_2d.flip_h = target_direction.x<0
 	character.move_and_slide()
 
 
