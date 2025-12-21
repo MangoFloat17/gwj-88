@@ -1,11 +1,23 @@
 extends CharacterBody2D
 
+signal health_depleted
+
+var health = 100.0
+
 #movement code refactor
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left","right","up","down")
 	velocity = direction * 100
 	move_and_slide()
 
+	const DAMAGE_RATE = 5.0
+	var overlapping_enemies = %HurtBox.get_overlapping_bodies()
+	if overlapping_enemies.size() > 0:
+		health -= DAMAGE_RATE * overlapping_enemies.size() * delta 
+		%ProgressBar.value = health
+		
+		if health <= 0.0:
+			health_depleted.emit()
 
 #var movement_speed = 60.0
 #

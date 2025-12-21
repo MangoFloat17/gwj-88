@@ -11,7 +11,7 @@ func _ready() -> void:
 	cooldown_timer = Timer.new()
 	cooldown_timer.one_shot = true
 	add_child(cooldown_timer)
-	hitbox_area.area_entered.connect(on_hitbox_area_entered)
+	#hitbox_area.area_entered.connect(on_hitbox_area_entered)
 
 func start_cooldown():
 	cooldown_timer.start(MergeManager.merge_cooldown) 
