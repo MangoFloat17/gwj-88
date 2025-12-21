@@ -2,7 +2,8 @@ extends NodeState
 
 @export var character: NonPlayableCharacter
 @export var attack_collision_shape: CollisionShape2D
-
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
+var attackSound = preload("res://Assets/audio/attack.wav")
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
@@ -29,7 +30,8 @@ func _on_enter() -> void:
 	animated_sprite_2d.play("attack")
 	animated_sprite_2d.flip_h=character.facing<0
 	animated_sprite_2d.scale=animated_sprite_2d.scale*2
-	
+	audio_stream_player_2d.stream=attackSound
+	audio_stream_player_2d.play()
 	attack_collision_shape.scale = attack_collision_shape.scale*2
 	attack_collision_shape.disabled=false
 	print(character,"playing attack animation")

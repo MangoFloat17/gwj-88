@@ -1,8 +1,9 @@
 extends NodeState
-
+var deathsound: AudioStream = preload("res://Assets/audio/monsterDeath.wav")
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var icicle_beast: CharacterBody2D = $"../.."
 @onready var snowball:PackedScene=preload("res://Scenes/objects/snowball.tscn")
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
 
 func _on_process(_delta : float) -> void:
 	pass
@@ -18,6 +19,8 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	animated_sprite_2d.play("death")
+	audio_stream_player_2d.stream=deathsound
+	audio_stream_player_2d.play()
 	await animated_sprite_2d.animation_finished
 	for i in icicle_beast.level:
 		var instance = snowball.instantiate()

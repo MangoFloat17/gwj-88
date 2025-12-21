@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func wave_machine():
 	for wave in waves:
-		enemies_in_wave = wave+2
+		enemies_in_wave = wave*2+3
 		print("wave: ",wave)
 		for enemy in enemies_in_wave:
 			var instance:NonPlayableCharacter = enemy_scene.instantiate()

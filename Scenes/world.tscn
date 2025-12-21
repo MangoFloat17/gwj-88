@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://f6ucnl78i27u" path="res://Assets/placeholder/basic ground tiles.png" id="2_8j60k"]
 [ext_resource type="PackedScene" uid="uid://dhblxwrwsgtua" path="res://Scenes/player.tscn" id="2_go701"]
-[ext_resource type="PackedScene" path="res://scripts/wave_spawner.tscn" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://0e5a3r1h2ngp" path="res://scripts/wave_spawner.tscn" id="4_8j60k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fo5ed"]
 texture = ExtResource("2_8j60k")
