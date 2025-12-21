@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dxcxhbwkn663i" path="res://Scenes/characters/icicle_beast/icicle_beast.gd" id="1_atlwb"]
 [ext_resource type="Texture2D" uid="uid://dcyjaye7tmqe2" path="res://Assets/placeholder/ice monster color.png" id="2_m8ruo"]
 [ext_resource type="Script" uid="uid://dd2vdpmlym4nl" path="res://Scenes/characters/icicle_beast/walk_state_ememy.gd" id="4_k5bo1"]
-[ext_resource type="Script" uid="uid://badwh0q0kl515" path="res://Scripts/state_machine/node_state_machine.gd" id="5_dfncs"]
+[ext_resource type="Script" uid="uid://badwh0q0kl515" path="res://scripts/state_machine/node_state_machine.gd" id="5_dfncs"]
 [ext_resource type="Texture2D" uid="uid://dritotoh887wt" path="res://Assets/placeholder/ice monster dead.png" id="5_jo6hc"]
 [ext_resource type="Texture2D" uid="uid://drqcmf7svjm0g" path="res://Assets/placeholder/ice monster split.png" id="6_3nv4u"]
 [ext_resource type="Script" uid="uid://d0ukmhmvptg21" path="res://Scenes/characters/icicle_beast/attack_state_enemy.gd" id="6_7v6de"]

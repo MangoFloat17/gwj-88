@@ -6,7 +6,7 @@ extends NodeState
 @onready var navigation_agent_2d: NavigationAgent2D = $"../../NavigationAgent2D"
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
 @onready var hitbox_area: Area2D = $"../../HitboxArea"
-
+var speed_modifier:float
 @export var attack_distance:float=40
 var target:Node2D
 
@@ -16,12 +16,12 @@ func _ready() -> void:
 	#hitbox_area.body_entered.connect(_on_hitbox_area_body_entered)
 
 func _on_process(_delta : float) -> void:
-	pass
+	speed_modifier = clamp(150/navigation_agent_2d.distance_to_target(),1,2)
 
 func _on_physics_process(_delta : float) -> void:
 	navigation_agent_2d.target_position = target.global_position
 	var target_direction: Vector2 = navigation_agent_2d.get_next_path_position() - character.global_position
-	character.velocity = target_direction.normalized()*character.speed
+	character.velocity = target_direction.normalized()*character.speed*speed_modifier
 	character.facing=target_direction.x
 	animated_sprite_2d.flip_h = target_direction.x>0
 	character.move_and_slide()
