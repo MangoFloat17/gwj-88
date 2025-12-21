@@ -13,3 +13,8 @@ func add_collectable(collectable_name: String) -> void:
 		inventory[collectable_name] +=1
 	inventroy_changed.emit()
 	print("inventory",inventory)
+
+func remove(collectable_name: String,number_to_remove:int):
+	if inventory[collectable_name]==null:
+		print("no inventory: ",collectable_name)
+	

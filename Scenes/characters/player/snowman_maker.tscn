@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://767jp5uqkiux"]
+
+[ext_resource type="Script" uid="uid://vf2rq387x0uu" path="res://Scenes/characters/player/snowman_maker.gd" id="1_ykmck"]
+
+[node name="SnowmanMaker" type="Node"]
+script = ExtResource("1_ykmck")
